@@ -11,5 +11,5 @@ import {ConfirmDialogModule,ConfirmationService, GrowlModule, Message} from 'pri
 })
 export class VentaComponent {
     private enviosPresentar:any = [];
-    title = 'app works Ronald12!';
+    title = 'app works Ronald12333!';
 }
