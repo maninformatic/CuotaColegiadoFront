@@ -77,7 +77,6 @@ export class VentaComponent {
 		else
 		this.headerTitle = 'Nueva Venta';
 
-
 	}
 
 }
