@@ -14,6 +14,12 @@ export class VentaService {
                 .map((r: Response) => r.json() )             
                 .catch(this.handleError);
 	}
+	newVenta(){
+		return this.http
+			.get(this.baseUrl+ 'new')
+			.map((r: Response) => r.json() )
+			.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+	}
     	// this could also be a private method of the component class
 	handleError (error: any) {
         // log error

@@ -23,6 +23,9 @@ export class VentaComponent {
 	//mesage de error 
 	private isLoading: boolean = false;  
 	private errorMessage:string='';
+	//propiedades de modal
+	private displayDialog: boolean=false;
+	private headerTitle:string;
 
 	constructor(private _ventaService: VentaService){ 
 
@@ -56,6 +59,25 @@ export class VentaComponent {
 			);
 
 		}  
+	}
+	addVenta(){
+		this._ventaService.newVenta()
+			.subscribe(
+			data => { this.venta = data;						
+					this.cargarDatosModal();					
+						},//lo llamo aqui xq sino le pierde el estado
+			err => { this.errorMessage = err },
+			() => this.isLoading = false
+			);
+	}
+	cargarDatosModal(){
+		this.displayDialog=true;
+		if (this.venta.Id > 0)
+		this.headerTitle = 'Editar Venta';
+		else
+		this.headerTitle = 'Nueva Venta';
+
+
 	}
 
 }
