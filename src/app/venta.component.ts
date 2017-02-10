@@ -97,12 +97,16 @@ export class VentaComponent {
 			() => this.isLoading = false
 			);
 	}
+	//Metodos de vantana modal
 	cargarDatosModal(){
 		this.displayDialog=true;
 		if (this.venta.Id > 0)
 		this.headerTitle = 'Editar Venta';
 		else
 		this.headerTitle = 'Nueva Venta';
+		//cangando documento
+		this.getAllDocumento();
+		this.getAllOperacion();
 
 	}
 	getAllDocumento() {

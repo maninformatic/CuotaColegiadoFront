@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+/*Para la busqueda de Personal formulario agregar y eitar*/
+.search-resultado{
+  border-bottom: 1px solid gray;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  width:315px;
+  height: 25px;
+  font-size: 75%;
+  background-color: white;
+  cursor: pointer;
+  padding: 0 0 0 0;
+ /* z-index: 999 !important; 
+  float:left;*/
+  
+}
