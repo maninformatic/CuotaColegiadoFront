@@ -42,13 +42,13 @@
 <p-dialog [header]="headerTitle" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" contentHeight="200"  >
 	<div class="form-group row ">
 		<div class="form-group">
-			<label for="lblFecha" class="col-lg-2 col-form-label col-form-label-sm">Derivar a:</label>
+			<label for="lblFecha" class="col-lg-2 col-form-label col-form-label-sm">Persona:</label>
 			<div class="col-lg-6">
 				<input type="text"
 						class="form-control form-control-md"
-						[(ngModel)]="nombrePersonal"
-						ng-required="true"  placeholder="Busqueda de Personal" #searchBox  id="search-box" 
-						(keyup)="searchPersonalByTerm($event,searchBox.value,op3)">
+						[(ngModel)]="nombresPersona"
+						ng-required="true"  placeholder="Busqueda de Persona" #searchBox  id="search-box" 
+						(keyup)="searchPersonaByTerm($event,searchBox.value,op3)">
 						<!--aqui llama a OverlayPanel que esta mas abajo-->
 			</div>
 			<div class="col-lg-4">
@@ -101,3 +101,13 @@
 		</div>
 	</footer>
  </p-dialog>
+
+ <!--esto es para la consulta-->
+<p-overlayPanel #op3 >
+	<!--<div class="search-resultado">-->
+		<div *ngFor="let persona of personasSearch | async"
+			(click)="SelectPersona(persona,op3)" class="search-resultado" >
+		{{persona.nombres - persona.PerNroDocumento}}
+		</div>
+	<!--</div>-->
+</p-overlayPanel>

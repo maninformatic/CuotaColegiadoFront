@@ -13,6 +13,9 @@ import { AppComponent } from './app.component';
 import { VentaComponent } from './venta.component';
 
 import { VentaService } from './venta.service';
+import { PersonaService } from './persona.service';
+import { DocumentoService } from './documento.service';
+import { OperacionService } from './operacion.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,7 @@ import { VentaService } from './venta.service';
     DataTableModule,SharedModule, ButtonModule,DialogModule, DataListModule,
     OverlayPanelModule,ConfirmDialogModule,GrowlModule
   ],
-  providers: [VentaService],
+  providers: [VentaService,PersonaService,DocumentoService,OperacionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
