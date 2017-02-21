@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {DatePipe} from '@angular/common';
 import { Subject }	from 'rxjs/Subject';
 import { Observable } from 'rxjs/Rx';
 // Componentes de primefaces
@@ -39,7 +40,7 @@ export class VentaComponent {
 	private searchTerms = new Subject<string>();
 
 	constructor(private _ventaService: VentaService,private _personaService: PersonaService,
-				private _documentoService: DocumentoService,private _operacionService: OperacionService){ 
+				private _documentoService: DocumentoService,private _operacionService: OperacionService,private datePipe: DatePipe){ 
 
 
 	}
@@ -88,7 +89,7 @@ export class VentaComponent {
 		}  
 	}
 	addVenta(){
-		this._ventaService.newVenta()
+		this._ventaService.newVenta()		
 			.subscribe(
 			data => { this.venta = data;						
 					this.cargarDatosModal();					
@@ -101,13 +102,22 @@ export class VentaComponent {
 	cargarDatosModal(){
 		this.displayDialog=true;
 		if (this.venta.Id > 0)
-		this.headerTitle = 'Editar Venta';
-		else
-		this.headerTitle = 'Nueva Venta';
+			this.headerTitle = 'Editar Venta';
+		else{
+			this.headerTitle = 'Nueva Venta';			
+   			this.venta.UsFechaReg = this.datePipe.transform(new Date(), 'shortDate');			
+		}
 		//cangando documento
 		this.getAllDocumento();
 		this.getAllOperacion();
 
+	}
+	parseDate(dateString: string): Date {
+		if (dateString) {
+			return new Date(dateString);
+		} else {
+			return null;
+		}
 	}
 	getAllDocumento() {
 		this._documentoService.getAllDocumento()

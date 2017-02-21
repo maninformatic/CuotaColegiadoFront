@@ -16,6 +16,7 @@ import { VentaService } from './venta.service';
 import { PersonaService } from './persona.service';
 import { DocumentoService } from './documento.service';
 import { OperacionService } from './operacion.service';
+import {DatePipe} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { OperacionService } from './operacion.service';
     DataTableModule,SharedModule, ButtonModule,DialogModule, DataListModule,
     OverlayPanelModule,ConfirmDialogModule,GrowlModule
   ],
-  providers: [VentaService,PersonaService,DocumentoService,OperacionService],
+  providers: [VentaService,PersonaService,DocumentoService,OperacionService,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
