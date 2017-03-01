@@ -39,6 +39,13 @@ export class VentaComponent {
 	private personasSearch:any = [];
 	private searchTerms = new Subject<string>();
 
+	//private tipoOperacion:any = {GRAVADA:"0",'NO GRABADA': "0"};
+	
+	private tipoOperacion: Array<Object> ;
+	private condicion: Array<Object> ;
+	
+
+
 	constructor(private _ventaService: VentaService,private _personaService: PersonaService,
 				private _documentoService: DocumentoService,private _operacionService: OperacionService,private datePipe: DatePipe){ 
 
@@ -110,6 +117,15 @@ export class VentaComponent {
 		//cangando documento
 		this.getAllDocumento();
 		this.getAllOperacion();
+		this.tipoOperacion = [ 
+			{value: "01", name: "GRABADA"}, 
+			{value: "02", name: "NO GRABADA"},
+			];
+			
+		this.condicion = [ 
+			{value: "1", name: "CONTADO"}, 
+			{value: "2", name: "CREDITO"},
+			];
 
 	}
 	parseDate(dateString: string): Date {

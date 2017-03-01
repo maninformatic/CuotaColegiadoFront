@@ -71,9 +71,9 @@
 							<!--aqui llama a OverlayPanel que esta mas abajo-->
 				</div>
 				<div class="col-lg-4">
-					<select  name="OpId" [(ngModel)]="venta.OpId"
+					<select  name="VeTipoOpera" [(ngModel)]="venta.VeTipoOpera"
 							class="form-control form-control-md" >
-						<option *ngFor="let operacion of operacions" [ngValue]="operacion.OpId">{{operacion.OpNombre}}</option>
+						<option *ngFor="let operacion of tipoOperacion" [ngValue]="operacion.value">{{operacion.name}}</option>
 					</select>			
 				</div>
 				
